@@ -3,6 +3,7 @@ import numpy as np
 import time
 from . import POSEMODULE as pm
 from . import HandCurl as hc
+from . import Squats as sq
 
 class VideoCamera(object):
     def __init__(self):
@@ -15,6 +16,13 @@ class VideoCamera(object):
         success, image = self.video.read()
         handCurl = hc.HandCurlModule()
         image = handCurl.handCurl(image)
+        ret, jpeg = cv2.imencode('.jpg', image)
+        return jpeg.tobytes()
+
+    def get_frame2(self):
+        success, image = self.video.read()
+        s = sq.SquatModule()
+        image = s.squat(image)
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
 

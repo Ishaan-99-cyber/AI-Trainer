@@ -11,9 +11,15 @@
             <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
-            <li class="nav-item navbar-nav navbar-right">
-                <a class="nav-link" href="#">Contact Us</a>
-            </li>
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Exercises
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/video">Handcurl</a>
+                  <a class="dropdown-item" href="/uploadVideo">Squats</a>
+                </div>
+              </div>
         </ul>
     </div>
     <form class="form-inline">

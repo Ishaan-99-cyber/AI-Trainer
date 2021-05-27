@@ -9,7 +9,7 @@ urlpatterns =[
     path('logout/',auth_views.LogoutView.as_view(template_name='pages/logout.html'), name='logout'),
     path('about', views.about, name='about'),
     path('video/', views.video, name='video'),
-    path('uploadVideo/', views.uploadVideo, name='uploadVideo'),
+    path('uploadVideo/', views.video_feed_sq, name='uploadVideo'),
     path('profile', views.profile, name='profile'),
     path('video_feed/', views.video_feed, name='video_feed')
 ]

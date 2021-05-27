@@ -42,9 +42,15 @@ def gen(camera):
         frame = camera.get_frame()
         yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
 
-    
 def video_feed(request):
-    # pm.main()
     cam = VideoCamera()
-    # print("try")
     return StreamingHttpResponse(gen(cam), content_type="multipart/x-mixed-replace;boundary=frame")
+
+def gen2(camera):
+    while True:
+        frame = camera.get_frame2()
+        yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
+
+def video_feed_sq(request):
+    cam = VideoCamera()
+    return StreamingHttpResponse(gen2(cam), content_type="multipart/x-mixed-replace;boundary=frame")
